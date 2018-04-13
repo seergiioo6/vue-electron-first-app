@@ -1,6 +1,5 @@
 <template>
     <div id="output-box" v-if="output.content">
-      {{ output.type }}
       <div class="list" v-if="output.type === 'ls'">
         <ul>
           <li class="ls-item" v-for="item in output.content">
@@ -29,5 +28,14 @@
 <style lang="scss">
   #output-box {
     color: white;
+  }
+  .list {
+    ul {
+      list-style: none;
+    }
+  }
+  .ls-item {
+    width: 33%;
+    float: left;
   }
 </style>
