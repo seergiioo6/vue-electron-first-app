@@ -1,7 +1,8 @@
-const fs = require('fs');
+/* eslint-disable */
+ const fs = require('fs')
 import store from '../store';
 
-import list from 'list';
+import list from './list';
 
 export default {
     changePath(comand) {
