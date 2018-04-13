@@ -1,0 +1,153 @@
+<template>
+  <div id="wrapper">
+    <!-- <img id="logo" src="~@/assets/logo.png" alt="electron-vue"> -->
+    <main>
+      <div class="left-side">
+        <span class="title">
+          {{ username }} {{ path}}
+        </span>
+        <div class="type-box">
+
+          <!-- <span class="blink"> </span> -->
+          <input type="text" name="" value="" class="shell-input" placeholder="|">
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</template>
+
+<script>
+  import SystemInformation from './LandingPage/SystemInformation'
+
+  export default {
+    name: 'landing-page',
+    components: { SystemInformation },
+    data () {
+      return {
+        electron: process.versions['atom-shell'],
+        name: this.$route.name,
+        node: process.versions.node,
+        path: this.$route.path,
+        platform: require('os').platform(),
+        vue: require('vue/package.json').version,
+        username: require('os').userInfo().username
+      }
+    },
+    methods: {
+      open (link) {
+        this.$electron.shell.openExternal(link)
+      }
+    }
+  }
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body { font-family: 'Source Sans Pro', sans-serif; }
+
+  #wrapper {
+    background: black;
+    height: 100vh;
+    padding: 60px 80px;
+    width: 100vw;
+  }
+
+  /* #logo {
+    height: auto;
+    margin-bottom: 20px;
+    width: 420px;
+  } */
+
+  main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main > div { flex-basis: 50%; }
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcome {
+    color: #555;
+    font-size: 23px;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .title.alt {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .doc p {
+    color: black;
+    margin-bottom: 10px;
+  }
+
+  .doc button {
+    font-size: .8em;
+    cursor: pointer;
+    outline: none;
+    padding: 0.75em 2em;
+    border-radius: 2em;
+    display: inline-block;
+    color: #fff;
+    background-color: #4fc08d;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+    border: 1px solid #4fc08d;
+  }
+
+  .doc button.alt {
+    color: #42b983;
+    background-color: transparent;
+  }
+  .blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    color: white;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  .type-box {
+    display: flex;
+    flex-direction: row;
+  }
+  .shell-input {
+    color: white;
+    background: black;
+    border: none;
+    padding-left: 10px;
+  }
+  .shell-input:focus {
+    outline: 0
+  }
+  .path {
+    color: white;
+  }
+</style>
