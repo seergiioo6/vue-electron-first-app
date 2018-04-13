@@ -22,8 +22,15 @@ const actions = {
   }
 }
 
+const getters = {
+  getOutput () {
+    return state
+  }
+}
+
 export default {
   state,
   mutations,
-  actions
+  actions,
+  getters
 }
