@@ -17,6 +17,7 @@
   import { mapActions } from 'vuex'
   import open from '../../services/open'
   import list from '../../services/list'
+  import { changePath } from '../../services/cd'
   export default {
     name: 'Type-box',
     data () {
@@ -59,11 +60,11 @@
                 type: false,
                 content: false
               })
-            } else if (this.text.startsWith('cd')){
+            } else if (this.text.startsWith('cd')) {
               changePath(this.text)
+            } else {
+              console.log('no se reconoce el comando')
             }
-            else {
-            console.log('no se reconoce el comando')
           }
         }
       }
