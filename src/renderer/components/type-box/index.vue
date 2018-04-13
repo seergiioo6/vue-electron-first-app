@@ -14,10 +14,10 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import open from '../../services/open'
   import list from '../../services/list'
-  import { changePath } from '../../services/cd'
+  import cd from '../../services/cd'
   export default {
     name: 'Type-box',
     data () {
@@ -25,7 +25,7 @@
         electron: process.versions['atom-shell'],
         name: this.$route.name,
         node: process.versions.node,
-        path: this.$route.path,
+        // path: this.$route.path,
         platform: require('os').platform(),
         vue: require('vue/package.json').version,
         username: require('os').userInfo().username,
@@ -38,6 +38,11 @@
           'clear'
         ]
       }
+    },
+    computed: {
+      ...mapGetters({
+        path: 'getPath'
+      })
     },
     methods: {
       ...mapActions([
@@ -61,7 +66,7 @@
                 content: false
               })
             } else if (this.text.startsWith('cd')) {
-              changePath(this.text)
+              cd.changePath(this.text)
             } else {
               console.log('no se reconoce el comando')
             }
