@@ -33,7 +33,8 @@
           'ls',
           'mkdir',
           'cd',
-          'open'
+          'open',
+          'clear'
         ]
       }
     },
@@ -52,6 +53,11 @@
               this.setOutput({
                 type: 'ls',
                 content: files
+              })
+            } else if (this.text === 'clear') {
+              this.setOutput({
+                type: false,
+                content: false
               })
             }
           } else {
