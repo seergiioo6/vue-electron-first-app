@@ -136,6 +136,7 @@
 		background: black;
 		border: none;
 		padding-left: 10px;
+    width: 94%;
 		&:focus{
 			outline: 0;
 		}
