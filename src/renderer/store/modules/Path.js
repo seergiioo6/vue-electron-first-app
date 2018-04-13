@@ -10,7 +10,6 @@ const mutations = {
 
 const actions = {
   setPath ({ commit }, path) {
-    // do something async
     commit('SET_PATH', {
       path
     })

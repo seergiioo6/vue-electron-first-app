@@ -7,6 +7,9 @@
           </li>
         </ul>
       </div>
+      <div class="eror" v-if="output.type === 'error'">
+        {{ output.content }}
+      </div>
     </div>
 </template>
 
