@@ -1,7 +1,7 @@
 # VUECTRON TERMINAL
 
 
-Vuectron terminal is a basic command line interface written in Vue.js and Electron for personal use with few functions.
+Vuectron terminal is a basic command line interface written in Vue.js and Electron made for fun use with few functions.
 
   - Navigate through your file system
   - List files and folders
