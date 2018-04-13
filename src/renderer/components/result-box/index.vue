@@ -2,7 +2,7 @@
     <div id="output-box" v-if="output.content">
       <div class="list" v-if="output.type === 'ls'">
         <ul>
-          <li class="ls-item" v-for="item in output.content">
+          <li v-bind:key="index" class="ls-item" v-for="(item, index) in output.content">
             {{item}}
           </li>
         </ul>
@@ -33,6 +33,8 @@
 <style lang="scss">
   #output-box {
     color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 20px;
   }
   .list {
     ul {

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+/* eslint-disable */
   import { mapActions, mapGetters } from 'vuex'
   import open from '../../services/open'
   import list from '../../services/list'
@@ -68,6 +69,19 @@
                 content: false
               })
             } else if (this.text.startsWith('cd')) {
+              let err = cd.changePath(this.text)
+              if(err != ""){
+                this.setOutput({
+                  type: 'error',
+                  content: err
+                })
+              }else{
+                let files = list.getFiles(this.path)
+                this.setOutput({
+                  type: 'ls',
+                  content: files
+                })
+              }
               cd.changePath(this.text)
             } else if (this.text === 'music') {
               document.getElementById('audio').play()
@@ -126,6 +140,7 @@
 		background: black;
 		border: none;
 		padding-left: 10px;
+    width: 94%;
 		&:focus{
 			outline: 0;
 		}
