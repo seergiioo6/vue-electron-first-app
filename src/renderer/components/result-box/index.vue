@@ -3,7 +3,7 @@
       {{ output.type }}
       <div class="list" v-if="output.type === 'ls'">
         <ul>
-          <li v-for="item in output.content">
+          <li class="ls-item" v-for="item in output.content">
             {{item}}
           </li>
         </ul>

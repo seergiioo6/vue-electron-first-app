@@ -5,7 +5,7 @@
 		<br/>
         (c) 2017 Microsoft Corporation. All rights reserved.
         <br/><br/>
-        {{ username }} {{ path}}
+        {{ username }} {{ path }}
       </div>
       <div class="input white">
         <span class="blink">$ <input v-model="text" @keydown="input" type="text" name="" value="" class="shell-input"/></span>

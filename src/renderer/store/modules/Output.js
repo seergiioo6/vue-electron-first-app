@@ -7,9 +7,6 @@ const mutations = {
   SET_OUTPUT (state, {data}) {
     state.type = data.type
     state.content = data.content
-  },
-  INCREMENT_MAIN_COUNTER (state) {
-    state.main++
   }
 }
 
