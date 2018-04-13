@@ -1,12 +1,17 @@
 <template>
-    <div class="left-side">
-      <span class="title">
+	<div id="input-box">
+      <div class="header white">
+        Microsoft Windows [Version 10.0.16299.371]
+		<br/>
+        (c) 2017 Microsoft Corporation. All rights reserved.
+        <br/><br/>
         {{ username }} {{ path}}
-      </span>
-      <div class="type-box">
-        <input type="text" name="" value="" class="shell-input" placeholder="|">
       </div>
-    </div>
+      <div class="input white">
+
+        <span class="blink">$ <input type="text" name="" value="" class="shell-input"/></span> 
+      </div>
+	</div>
 </template>
 
 <script>
@@ -31,53 +36,56 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+	%courier{
+		font-size: 16px;
+		font-family: 'Courier New', Courier, monospace;
+	}
 
-  .left-side {
-    display: flex;
-    flex-direction: column;
-  }
+	.left-side {
+		display: flex;
+		flex-direction: column;
+	}
 
-  .title {
-    color: #ffffff;
-    font-size: 17px;
-    margin-bottom: 6px;
-  }
+	.header{
+		@extend %courier;
+	}
+	.title {
+		color: #ffffff;
+		font-size: 17px;
+		margin-bottom: 6px;
+	}
 
-  .title.alt {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+	.title.alt {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
 
-  .blink {
-    animation: blink-animation 1s steps(5, start) infinite;
-    -webkit-animation: blink-animation 1s steps(5, start) infinite;
-    color: white;
-  }
-  @keyframes blink-animation {
-    to {
-      visibility: hidden;
-    }
-  }
-  @-webkit-keyframes blink-animation {
-    to {
-      visibility: hidden;
-    }
-  }
-  .type-box {
-    display: flex;
-    flex-direction: row;
-  }
-  .shell-input {
-    color: white;
-    background: black;
-    border: none;
-    padding-left: 10px;
-  }
-  .shell-input:focus {
-    outline: 0
-  }
-  .path {
-    color: white;
-  }
+	.type-box {
+		display: flex;
+		flex-direction: row;
+	}
+	.shell-input {
+		color: white;
+		background: black;
+		border: none;
+		padding-left: 10px;
+		&:focus{
+			outline: 0;
+		}
+		@extend %courier;
+	}
+
+
+	.white{
+		color: white;
+	}
+
+	/* Keyframes */
+	@keyframes blink {
+		50% {
+		opacity: 0;
+		}
+	}
+
 </style>

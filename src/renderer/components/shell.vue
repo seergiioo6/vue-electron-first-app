@@ -4,6 +4,16 @@
       <Type-box></Type-box>
       <Result-box></Result-box>
     </main>
+    <div class="foto" id="sergio">
+      <img src="../assets/sergio.jpg" />
+    </div>
+	<div class="foto" id="pere">
+      <img src="../assets/pere.jpg" />
+    </div>
+    <div class="foto" id="andrea">
+      <img src="../assets/andrea.jpg" />
+    </div>
+
   </div>
 </template>
 
@@ -33,8 +43,7 @@
   }
 </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+<style lang="scss">
 
   * {
     box-sizing: border-box;
@@ -47,15 +56,46 @@
   #wrapper {
     background: black;
     height: 100vh;
-    padding: 60px 80px;
+    padding: 5px 5px;
     width: 100vw;
   }
 
-  main {
-    display: flex;
-    justify-content: space-between;
+  $size:150px;
+  .foto{
+    animation:spin 4s linear infinite;
+    &>img{
+      width: $size;
+      height: $size;
+	  border-radius: 100px;
+	  border: 6px solid white;
+	  box-sizing: border-box;
+    }
+    width: $size;
+    height: $size;
+    margin-right: -$size/2;
+    margin-bottom: -$size/2;
   }
 
-  main > div { flex-basis: 50%; }
+	#sergio{
+		position: fixed;
+		right: (10px + $size/2);
+		top: 10px;
+	}
+	#pere{
+		position: fixed;
+		right: (10px + $size/2);
+		top: 10px + $size*1.2;
+	}
+	#andrea{
+		position: fixed;
+		right: (10px + $size/2);
+		top: 10px + $size*1.2 * 2;
+	}
+
+
+  	@keyframes spin { 100% {  transform:rotate(360deg); } }
+
+
+  	main > div { flex-basis: 50%; }
 
 </style>
