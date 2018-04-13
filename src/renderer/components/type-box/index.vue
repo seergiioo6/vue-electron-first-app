@@ -71,6 +71,10 @@
               cd.changePath(this.text)
             } else if (this.text === 'music') {
               document.getElementById('audio').play()
+              this.setOutput({
+                type: 'music',
+                content: 'music'
+              })
             } else if (this.text === 'silence') {
               document.getElementById('audio').pause()
             }

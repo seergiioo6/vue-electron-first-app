@@ -10,6 +10,8 @@
       <div class="eror" v-if="output.type === 'error'">
         {{ output.content }}
       </div>
+      <div v-if="output.type === 'music'" class="music">
+      </div>
     </div>
 </template>
 

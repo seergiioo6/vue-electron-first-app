@@ -39,9 +39,6 @@
         username: require('os').userInfo().username
       }
     },
-    mounted () {
-      this.music()
-    },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
