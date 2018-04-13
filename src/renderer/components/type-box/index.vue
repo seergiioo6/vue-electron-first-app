@@ -59,8 +59,10 @@
                 type: false,
                 content: false
               })
+            } else if (this.text.startsWith('cd')){
+              changePath(this.text)
             }
-          } else {
+            else {
             console.log('no se reconoce el comando')
           }
         }
