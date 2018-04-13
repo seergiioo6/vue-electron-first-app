@@ -14,6 +14,7 @@
 </template>
 
 <script>
+/* eslint-disable */
   import { mapActions, mapGetters } from 'vuex'
   import open from '../../services/open'
   import list from '../../services/list'
@@ -66,7 +67,19 @@
                 content: false
               })
             } else if (this.text.startsWith('cd')) {
-              cd.changePath(this.text)
+              let err = cd.changePath(this.text)
+              if(err != ""){
+                this.setOutput({
+                  type: 'error',
+                  content: err
+                })
+              }else{
+                let files = list.getFiles(this.path)
+                this.setOutput({
+                  type: 'ls',
+                  content: files
+                })
+              }
             }
           } else {
             this.setOutput({
