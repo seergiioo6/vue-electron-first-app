@@ -69,6 +69,8 @@
               cd.changePath(this.text)
             }
           } else {
+            console.log(this.$electron.shell)
+            this.$electron.shell.beep()
             this.setOutput({
               type: 'error',
               content: 'Command not found'
