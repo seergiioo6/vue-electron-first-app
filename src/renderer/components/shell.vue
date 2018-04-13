@@ -6,7 +6,6 @@
       <audio id="audio" loop>
          <source src="../assets/electronLatino.mp3" type="audio/mpeg">
       </audio>
-      <img src="../assets/marciano.gif" class="gif">
       <div class="container"></div>
     </main>
     <div class="foto" id="sergio">
@@ -25,7 +24,7 @@
 <script>
   import TypeBox from './type-box/index'
   import ResultBox from './result-box/index'
-  
+
   export default {
     name: 'shell',
     components: { TypeBox, ResultBox },
@@ -46,9 +45,6 @@
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
-      },
-      music () {
-        document.getElementById('audio').play()
       }
     }
   }
