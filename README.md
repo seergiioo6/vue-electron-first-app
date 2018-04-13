@@ -7,13 +7,12 @@ Vuectron terminal is a basic command line interface written in Vue.js and Electr
   - List files and folders
   - Play music
   - Open websites
+  - Clear content
   - ...
 
 # New Features are welcome
 
   Feel free to create new features and collaborate with us
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
 ### Tech
 
