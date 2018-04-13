@@ -67,10 +67,14 @@
               })
             } else if (this.text.startsWith('cd')) {
               cd.changePath(this.text)
-            } else {
-              console.log('no se reconoce el comando')
             }
+          } else {
+            this.setOutput({
+              type: 'error',
+              content: 'Command not found'
+            })
           }
+          this.text = ''
         }
       }
     }
