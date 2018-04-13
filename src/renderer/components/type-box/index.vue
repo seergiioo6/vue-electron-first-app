@@ -36,7 +36,9 @@
           'mkdir',
           'cd',
           'open',
-          'clear'
+          'clear',
+          'music',
+          'silence'
         ]
       }
     },
@@ -80,8 +82,14 @@
                   content: files
                 })
               }
+              cd.changePath(this.text)
+            } else if (this.text === 'music') {
+              document.getElementById('audio').play()
+            } else if (this.text === 'silence') {
+              document.getElementById('audio').pause()
             }
           } else {
+            this.$electron.shell.beep()
             this.setOutput({
               type: 'error',
               content: 'Command not found'

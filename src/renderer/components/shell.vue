@@ -3,6 +3,10 @@
     <main>
       <Type-box></Type-box>
       <Result-box></Result-box>
+      <audio id="audio" loop>
+         <source src="../assets/electronLatino.mp3" type="audio/mpeg">
+      </audio>
+      <div class="container"></div>
     </main>
     <div class="foto" id="sergio">
       <img src="../assets/sergio.jpg" />
@@ -34,6 +38,9 @@
         vue: require('vue/package.json').version,
         username: require('os').userInfo().username
       }
+    },
+    mounted () {
+      this.music()
     },
     methods: {
       open (link) {
@@ -97,5 +104,22 @@
 
 
   	main > div { flex-basis: 50%; }
+
+  .gif {
+    max-width: 180px;
+    max-height: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+  }
+
+  .container {
+    position: absolute;
+    bottom: 60px;
+    left: 160px;
+    width: 20px;
+    height: 70px;
+    background-color: black;
+  }
 
 </style>
