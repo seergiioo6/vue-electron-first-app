@@ -4,12 +4,15 @@
         {{ username }} {{ path}}
       </span>
       <div class="type-box">
-        <input type="text" name="" value="" class="shell-input" placeholder="|">
+        <input v-model="text" @keydown="input" type="text" class="shell-input" placeholder="|">
       </div>
     </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+  import open from '../../services/open'
+  import list from '../../services/list'
   export default {
     name: 'Type-box',
     data () {
@@ -20,12 +23,37 @@
         path: this.$route.path,
         platform: require('os').platform(),
         vue: require('vue/package.json').version,
-        username: require('os').userInfo().username
+        username: require('os').userInfo().username,
+        text: '',
+        commands: [
+          'ls',
+          'mkdir',
+          'cd',
+          'open'
+        ]
       }
     },
     methods: {
-      open (link) {
-        this.$electron.shell.openExternal(link)
+      ...mapActions([
+        'setOutput'
+      ]),
+      input (e) {
+        if (e.key === 'Enter') {
+          let keyWord = this.text.replace(/ .*/, '')
+          if (this.commands.includes(keyWord)) {
+            if (this.text.includes('open')) {
+              this.$electron.shell.openExternal(open.getUrl(this.text))
+            } else if (this.text === 'ls') {
+              let files = list.getFiles(this.path)
+              this.setOutput({
+                type: 'ls',
+                content: files
+              })
+            }
+          } else {
+            console.log('no se reconoce el comando')
+          }
+        }
       }
     }
   }
