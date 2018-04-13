@@ -1,10 +1,12 @@
 const state = {
-  main: 0
+  type: false,
+  content: false
 }
 
 const mutations = {
-  DECREMENT_MAIN_COUNTER (state) {
-    state.main--
+  SET_OUTPUT (state, {data}) {
+    state.type = data.type
+    state.content = data.content
   },
   INCREMENT_MAIN_COUNTER (state) {
     state.main++
@@ -12,9 +14,11 @@ const mutations = {
 }
 
 const actions = {
-  someAsyncTask ({ commit }) {
+  setOutput ({ commit }, data) {
     // do something async
-    commit('INCREMENT_MAIN_COUNTER')
+    commit('SET_OUTPUT', {
+      data
+    })
   }
 }
 
